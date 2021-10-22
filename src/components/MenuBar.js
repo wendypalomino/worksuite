@@ -21,12 +21,16 @@ export default function MenuBar() {
             </li>
             <style jsx>{`
                 .menuBar{
+                    position:absolute;
                     background: var(--bg-menuBar);
                     box-shadow: 0px 8px 16px rgba(185, 187, 198, 0.24);
                     border-radius: 5px;
                     width: 175px;
-                    font-size: var(--fs-xs)
-
+                    font-size: var(--fs-xs);
+                    top:100%;
+                    right:0;
+                    margin:0.5em 1em 0 0;
+                    cursor: pointer;
                 }
 
                 .menuBar li{

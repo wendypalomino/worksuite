@@ -4,6 +4,8 @@ import Avatar from '../images/avatar.png'
 import Logo from '../images/logo.png'
 import AddFriends from '../images/addFriends.svg'
 import Open from'../images/arrow.svg'
+import MenuBar from './MenuBar'
+import Overlay from './Overlay'
 
 
 export default function Navbar() {
@@ -16,7 +18,8 @@ const [open, setOpen] = useState(false)
     }
 
     return ( 
-        <nav className="navbar container">  
+        <>
+        <nav className="navbar">  
             <div className="navbar__mobile">
                 <AlignJustify color="#111"/>
             </div>  
@@ -27,17 +30,14 @@ const [open, setOpen] = useState(false)
                 />
             </div> 
             <div className="navbar__icons" >
-                <div className="navbar__icons--bell wrapper-icon">
-                    <Bell className="bell"  size={18} />
+                <div className="navbar__icons--bell ">
+                    <Bell className="bell"  size={24} />
                 </div>
-                <div className="navbar__icons--avatar">
-                    <div className="overlay">
-                        <img src={Open} alt="arrow" />
-                    </div>
+                <div className="navbar__icons--avatar" onClick={displayMenuBar}>
+                    <Overlay open={open}/>
                     <img
                         src={Avatar} 
                         alt="avatar"
-                        onClick={displayMenuBar}
                     />
                 </div>
                 <div className="navbar__icons--open">
@@ -65,7 +65,9 @@ const [open, setOpen] = useState(false)
                 <li>Meetings</li>
                 <li>Rooms</li>
             </ul>
-         
+            {open && <MenuBar/> }
+            </nav>
+            <div className={open && "overlay__doc"} ></div>
 
             <style jsx>{`
                 .navbar__desktop, .navbar__options, 
@@ -83,12 +85,17 @@ const [open, setOpen] = useState(false)
                     align-items: center;
                     border-bottom: solid var(--fc-border);
                     padding:0.5em 1em;
+                    background:white;
+                    position:relative;
                 }
 
                 .navbar__icons{
                     display:flex;
                     align-items: center;
+                    gap: 0.6em;
                 }
+
+                
 
                 .navbar__icons--avatar{
                     position:relative;
@@ -97,37 +104,7 @@ const [open, setOpen] = useState(false)
                     height:40px;
                     overflow:hidden;
                     text-align:center;
-                    /* opacity:1 */
                 }
-
-                .navbar__icons--avatar:hover > .overlay{
-                    opacity:1
-                }
-
-                .overlay{
-                    position:absolute;
-                    background: rgba(180, 180, 190, 0.60);
-                    width:100%;
-                    height:100%;
-                    bottom:0;
-                    left:0;
-                    opacity:0;
-                    border-radius: 40%;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-
-                }
-
-                .overlay img{
-                    position:absolute;
-                    color:red;
-                    transform: scaleY(-1);
-                }
-
-                
-
-                
 
                 @media screen and (min-width: 768px){
                     .navbar__desktop, .navbar__options, 
@@ -205,6 +182,7 @@ const [open, setOpen] = useState(false)
                     }
 
                     .navbar__icons--avatar{
+                        all:initial;
                         grid-column:5/6;
                         grid-row: 1/2;
                     }
@@ -215,9 +193,7 @@ const [open, setOpen] = useState(false)
                     }
 
                 }
-
-            
             `}</style>
-        </nav>
+        </>
     )
 }

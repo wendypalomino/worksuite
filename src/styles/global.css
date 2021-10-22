@@ -13,7 +13,7 @@
     --fc-secondary : #fff;
     --fc-title: #29292C;
     --fc-border: #F1F3FA;
-    --bg-card: #FCFDFE;
+    --bg-card: #FCFDFE ;
     --bg-navlist: #F7F8FC;
     --bg-menuBar: #FBFCFE;
 
@@ -56,6 +56,22 @@ ul{
     padding: 0.4em 0.5em
 }
 
-/* .container{
-    padding: 0 1em;
-} */
+.container{
+    padding:0.5em 1em;
+}
+
+.title{
+    color: var(--fc-title);
+    font-weight: 600;
+}
+
+.overlay__doc{
+    position: fixed;
+    top: 0;
+    bottom:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(161, 164, 179, 0.6);
+    z-index: -10;
+  }
