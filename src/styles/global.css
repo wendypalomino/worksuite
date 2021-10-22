@@ -17,23 +17,12 @@
     --bg-navlist: #F7F8FC;
     --bg-menuBar: #FBFCFE;
 
-
-
     /*FontSize*/
     --fs-xs: 0.875rem;
     --fs-sm: 1rem;
     --fs-md: 1.15rem;
     --fs-l: 2rem;
     --fs-xl: clamp(2.25rem, 4vw + 1rem, 3rem);
-
-
-    /*BreakPoints*/
-
-    --bp-sm: 576px;
-    --bp-md: 768px;
-    --bp-lg: 992px;
-    --bp-xl: 1200px;
-    --bp-xxl: 1400px;
 
 }
 
@@ -46,6 +35,11 @@ body{
 
 ul{
     list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: var(--fc-main)
 }
 
 .wrapper-icon{
@@ -65,7 +59,7 @@ ul{
     font-weight: 600;
 }
 
-.overlay__doc{
+.overlay__container{
     position: fixed;
     top: 0;
     bottom:0;

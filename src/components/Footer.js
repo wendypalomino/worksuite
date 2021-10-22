@@ -1,43 +1,24 @@
 // import {useState} from 'react'
+import { Link } from 'react-router-dom'
+
 import { Calendar,Home, Inbox } from 'react-feather'
 
 export default function Footer() {
 
-    // const [hidden, setHidden] = useState(false)
-
-    // const handleHidden = () => {
-    //     setHidden(true)
-    // }
-
     return (
         <footer className="footer__wrapper">
             <div className="footer">
-                <div 
-                    // onClick={handleHidden}
-                >
+                <Link className="footer__info"to="/">
                     <Home size={20} />
                     <span>Home</span>
-                    {/* <span className={hidden ? "hidden" : ""}>Home</span> */}
-                    {/* { hidden && <span>Home</span>} */}
-                </div>
-                <div 
-                    className="footer__calendar"
-                    // onClick={handleHidden}
-                >
+                </Link>
+                <Link className="footer__info" to="/meetings">
                     <Calendar size={20}/>
                     <span>Meetings</span>
-                    {/* { hidden && <span>Meetings</span>} */}
-
-
-                </div>
-                <div 
-                    className="footer__inbox"
-                    // onClick={handleHidden}
-                >
+                </Link>
+                <div className="footer__info">
                     <Inbox size={20}/>
                     <span>Rooms</span>
-                    {/* { hidden && <span>Rooms</span>} */}
-
                 </div>
             </div>
             
@@ -55,7 +36,7 @@ export default function Footer() {
                     justify-content:space-between;
                 }
 
-                .footer > div {
+                .footer__info {
                     display:flex;
                     flex-direction: column;
                     align-items:center;
@@ -66,7 +47,7 @@ export default function Footer() {
                     padding: 1em;
                 }
 
-                .footer > div:hover{
+                .footer > div:hover, .footer__info:hover{
                     background: #F6F7FC;
                     font-weight: 700;
                     color:var(--fc-title);

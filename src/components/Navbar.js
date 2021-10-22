@@ -1,26 +1,49 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import {AlignJustify, Bell, Calendar, Mail} from 'react-feather'
 import Avatar from '../images/avatar.png'
 import Logo from '../images/logo.png'
 import AddFriends from '../images/addFriends.svg'
 import Open from'../images/arrow.svg'
 import MenuBar from './MenuBar'
+import MeetingBar from './MeetingBar'
 import Overlay from './Overlay'
 
 
 export default function Navbar() {
 
-const [open, setOpen] = useState(false)
+const [openMenuBar, setOpenMenuBar] = useState(false)
+const [openMeetingBar, setOpenMeetingBar] = useState(false)
 
-    const displayMenuBar = () => {
-        setOpen(true)
-        open && setOpen(false)
-    }
+const [width, setWidth] = useState(window.innerWidth)
+
+const updateWidth = () => {
+    setWidth(window.innerWidth);
+};
+
+useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+},[])
+
+
+
+const displayMenuBar = () => {
+    setOpenMenuBar(true)
+    openMenuBar && setOpenMenuBar(false)
+    setOpenMeetingBar(false)
+}
+
+const displayMeetingBar = () => {
+    setOpenMeetingBar(true)
+    openMeetingBar && setOpenMeetingBar(false)
+    setOpenMenuBar(false)
+}
 
     return ( 
         <>
         <nav className="navbar">  
-            <div className="navbar__mobile">
+            <div className="navbar__mobile" onClick={displayMeetingBar}>
                 <AlignJustify color="#111"/>
             </div>  
             <div className="logo">
@@ -30,11 +53,12 @@ const [open, setOpen] = useState(false)
                 />
             </div> 
             <div className="navbar__icons" >
-                <div className="navbar__icons--bell ">
-                    <Bell className="bell"  size={24} />
+                <div 
+                    className={ width >= 768 ? "navbar__icons--bell wrapper-icon": "navbar__icons--bell"}>
+                    <Bell className="bell"  size={width >= 768 ? 18: 24 } />
                 </div>
                 <div className="navbar__icons--avatar" onClick={displayMenuBar}>
-                    <Overlay open={open}/>
+                    <Overlay open={openMenuBar}/>
                     <img
                         src={Avatar} 
                         alt="avatar"
@@ -61,13 +85,15 @@ const [open, setOpen] = useState(false)
                 </div>
             </div>
             <ul className="navbar__options">
-                <li>Home</li>
-                <li>Meetings</li>
-                <li>Rooms</li>
+                <Link to="/"><li>Home</li></Link>
+                <Link to="/meetings"><li>Meetings</li></Link>
+                <Link to="/calendar"><li>Rooms</li></Link>
             </ul>
-            {open && <MenuBar/> }
+            {openMenuBar ? <MenuBar/> : <></> }
+            {openMeetingBar ? <MeetingBar/> : <></> }
+
             </nav>
-            <div className={open && "overlay__doc"} ></div>
+            <div className={(openMenuBar || openMeetingBar ) ? "overlay__container" : ""} ></div>
 
             <style jsx>{`
                 .navbar__desktop, .navbar__options, 
