@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import '../styles/layout/navbar.css'
 import { Link } from 'react-router-dom'
 import {AlignJustify, Bell, Calendar, Mail} from 'react-feather'
@@ -12,6 +12,7 @@ import MeetingBarDesktop from './sidebars/MeetingBarDesktop'
 import Overlay from './Overlay'
 import RoomsBar from './sidebars/RoomsBar'
 import MenuBarDesktop from './sidebars/MenuBarDesktop'
+import useScreenWidth from '../customHooks/useScreenWidth'
 
 
 export default function Navbar() {
@@ -22,14 +23,8 @@ const [openMeetingBarDesktop, setOpenMeetingBarDesktop] = useState(false)
 const [openRoomsBar, setOpenRoomsBar] = useState(false)
 const [openMenuBarDesktop, setOpenMenuBarDesktop] = useState(false)
 
-const [width, setWidth] = useState(window.innerWidth)
+const width = useScreenWidth()
 const minScreenWidth = width >= 768
-
-
-
-const updateWidth = () => {
-    setWidth(window.innerWidth);
-};
 
 const displayMenuBar = () => {
     setOpenMenuBar(true)
@@ -69,14 +64,6 @@ const displayMenuBarDesktop = () => {
     setOpenMenuBarDesktop(true)
     openMenuBarDesktop && setOpenMenuBarDesktop(false)
 }
-
-
-
-
-useEffect(() => {
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-},[])
 
     return ( 
         <>
@@ -150,10 +137,7 @@ useEffect(() => {
                     handleSettings={()=> setOpenMenuBarDesktop(false)}
                     handleLogout={()=> setOpenMenuBarDesktop(false)}
                 /> : <></> }
-            {openRoomsBar ?
-                <RoomsBar/> : <></>
-            }
-
+            {openRoomsBar ? <RoomsBar/> : <></>}
             </nav>
             <div 
                 onClick={deleteOverlay}
