@@ -65,6 +65,7 @@ const displayMenuBarDesktop = () => {
     openMenuBarDesktop && setOpenMenuBarDesktop(false)
 }
 
+
     return ( 
         <>
         <nav className="navbar">  
@@ -138,6 +139,12 @@ const displayMenuBarDesktop = () => {
                     handleLogout={()=> setOpenMenuBarDesktop(false)}
                 /> : <></> }
             {openRoomsBar ? <RoomsBar/> : <></>}
+            {openRoomsBar && !minScreenWidth ? setOpenRoomsBar(false): <></>}
+            {openMeetingBarDesktop && !minScreenWidth ? setOpenMeetingBarDesktop(false): <></>}
+            {openMenuBarDesktop && !minScreenWidth ? setOpenMenuBarDesktop(false): <></>}
+            {openMenuBar && minScreenWidth ? setOpenMenuBar(false): <></>}
+            {openMeetingBar && minScreenWidth ? setOpenMeetingBar(false): <></>}
+
             </nav>
             <div 
                 onClick={deleteOverlay}
