@@ -1,3 +1,4 @@
+import '../../styles/sidebar/menuBarDesktop.css'
 import SideBar from './common/SideBar'
 
 export default function MenuBarDesktop(props) {
@@ -32,22 +33,6 @@ export default function MenuBarDesktop(props) {
                     handleDisplay={option.handleDisplay}
                 />
             ))}
-            <style jsx>{`
-
-            .sideBar{
-                box-shadow: 0px 2px 4px rgba(236, 238, 245, 0.64);
-                border: 1px solid #ECEEF5;
-                border-radius: 5px;
-
-            }
-
-            .rigth{
-                right:0;
-                margin-right: 4em;
-                margin-top: -1.3em;
-            }
-            
-            `}</style>
         </div>
     )
 }

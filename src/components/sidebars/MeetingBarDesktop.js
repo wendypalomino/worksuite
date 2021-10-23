@@ -1,3 +1,4 @@
+import '../../styles/sidebar/meetingBarDesktop.css'
 import SideBar from './common/SideBar'
 
 export default function MeetingBarDesktop(props) {
@@ -19,7 +20,6 @@ export default function MeetingBarDesktop(props) {
         }  
     ]
 
-
     return (
         <div className="sideBar">
             {options.map ( option => (
@@ -30,14 +30,6 @@ export default function MeetingBarDesktop(props) {
                     handleDisplay={option.handleDisplay}
                 />
             ))}
-            <style jsx>{`
-
-            .sideBar{
-                box-shadow: initial;   
-            }
-            
-            
-            `}</style>
         </div>
     )
 }

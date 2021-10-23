@@ -15,12 +15,12 @@ function App() {
       <Layout>
       <div className="App container">
         <Switch>
-          <Route exact path="/"><Home/></Route>
-          <Route path="/meetings"><Meetings/></Route>
-          <Route path="/calendar"><Calendar/></Route>
-          <Route path="/upcoming-meetings"><UpcomingMeets/></Route>
-          <Route path="/history"><History/></Route>
-          <Route path="/rooms"><Rooms/></Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/meetings" component={Meetings} />
+          <Route path="/calendar" component={Calendar} />
+          <Route path="/upcoming-meetings" component={UpcomingMeets} />
+          <Route exact path="/history" component={History} />    
+          <Route exact path="/rooms" component={Rooms} />
         </Switch>
       </div>
       </Layout>

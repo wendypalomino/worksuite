@@ -1,6 +1,5 @@
-// import {useState} from 'react'
 import { Link } from 'react-router-dom'
-
+import '../styles/layout/footer.css'
 import { Calendar,Home, Inbox } from 'react-feather'
 
 export default function Footer() {
@@ -20,42 +19,7 @@ export default function Footer() {
                     <Inbox size={20}/>
                     <span>Rooms</span>
                 </Link>
-            </div>
-            
-            <style jsx>{`
-                .footer__wrapper{
-                    background: var(--bg-card);
-                    position: fixed;
-                    width:100%;
-                    bottom: 0;
-                    z-index: -20;
-                }
-                
-                .footer{
-                    display:flex;
-                    justify-content:space-between;
-                }
-
-                .footer__info {
-                    display:flex;
-                    flex-direction: column;
-                    align-items:center;
-                    justify-content:center;
-                    gap:0.5em;
-                    width:100%;
-                    min-height:100%;
-                    padding: 1em;
-                }
-
-                .footer > div:hover, .footer__info:hover{
-                    background: #F6F7FC;
-                    font-weight: 700;
-                    color:var(--fc-title);
-                    cursor:pointer;
-                }
-                
-            `}</style>
-            
+            </div> 
         </footer>
     )
 }

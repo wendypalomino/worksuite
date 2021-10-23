@@ -38,7 +38,7 @@ export default function MenuBarMobile(props) {
 
 
     return (
-        <div className="sideBar right">
+        <div className="sideBar toRight">
             {options.map ( option => (
                 <SideBar
                     key={option.name}
@@ -47,12 +47,6 @@ export default function MenuBarMobile(props) {
                     handleDisplay={option.handleDisplay}
                 />
             ))}
-             <style jsx>{`
-                .right{
-                    right:0;
-                }
-                
-            `}</style>
         </div>
     )
 }

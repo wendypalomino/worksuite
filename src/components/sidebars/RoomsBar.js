@@ -1,3 +1,4 @@
+import '../../styles/sidebar/rooms.css'
 import SideBar from './common/SideBar'
 
 export default function RoomsBar() {
@@ -16,13 +17,6 @@ export default function RoomsBar() {
                     path={option.path}
                 />
             ))}
-            <style jsx>{`
-
-            .sideBar{
-                box-shadow: initial;   
-            }
-            
-            `}</style>
         </div>
     )
 }
