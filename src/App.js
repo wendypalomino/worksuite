@@ -7,8 +7,6 @@ import UpcomingMeets from './pages/meetings/UpcomingMeets';
 import History from './pages/meetings/History';
 import Rooms from './pages/Rooms';
 
-
-
 function App() {
   return (
     <Router>
