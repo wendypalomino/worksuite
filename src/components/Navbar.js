@@ -153,6 +153,7 @@ useEffect(() => {
             {openRoomsBar ?
                 <RoomsBar/> : <></>
             }
+
             </nav>
             <div 
                 onClick={deleteOverlay}
