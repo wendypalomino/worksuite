@@ -16,10 +16,10 @@ export default function Footer() {
                     <Calendar size={20}/>
                     <span>Meetings</span>
                 </Link>
-                <div className="footer__info">
+                <Link className="footer__info" to="/rooms">
                     <Inbox size={20}/>
                     <span>Rooms</span>
-                </div>
+                </Link>
             </div>
             
             <style jsx>{`

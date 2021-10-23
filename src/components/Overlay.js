@@ -26,7 +26,7 @@ export default function Overlay({open}) {
             .overlay img{
                 position:absolute;
                 transform: scaleY(-1);
-            }
+                }
 
             @media screen and (min-width: 768px){
                 .overlay{
