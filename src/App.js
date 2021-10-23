@@ -21,9 +21,6 @@ function App() {
           <Route path="/upcoming-meetings"><UpcomingMeets/></Route>
           <Route path="/history"><History/></Route>
           <Route path="/rooms"><Rooms/></Route>
-
-
-
         </Switch>
       </div>
       </Layout>

@@ -21,7 +21,7 @@ export default function SideBar(props) {
                     padding: 1.4em 2em;
                     border-bottom: 1px solid #ECEEF5;
                     align-items:center;
-                    width:100% 
+                    width:100% ;
                 }
 
                 .links a:last-child {

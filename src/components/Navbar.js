@@ -5,7 +5,7 @@ import Avatar from '../images/avatar.png'
 import Logo from '../images/logo.png'
 import AddFriends from '../images/addFriends.svg'
 import Open from'../images/arrow.svg'
-import MenuBar from './sidebars/MenuBarMobile'
+import MenuBarMobile from './sidebars/MenuBarMobile'
 import MeetingBarMobile from './sidebars/MeetingBarMobile'
 import MeetingBarDesktop from './sidebars/MeetingBarDesktop'
 import Overlay from './Overlay'
@@ -21,9 +21,9 @@ const [openMeetingBarDesktop, setOpenMeetingBarDesktop] = useState(false)
 const [openRoomsBar, setOpenRoomsBar] = useState(false)
 const [openMenuBarDesktop, setOpenMenuBarDesktop] = useState(false)
 
-
 const [width, setWidth] = useState(window.innerWidth)
 const minScreenWidth = width >= 768
+
 
 
 const updateWidth = () => {
@@ -68,6 +68,8 @@ const displayMenuBarDesktop = () => {
     setOpenMenuBarDesktop(true)
     openMenuBarDesktop && setOpenMenuBarDesktop(false)
 }
+
+
 
 
 useEffect(() => {
@@ -122,7 +124,7 @@ useEffect(() => {
             </ul>
 
             {openMenuBar ? 
-                <MenuBar
+                <MenuBarMobile
                     handleProfile={()=> setOpenMenuBar(false)}
                     handleSettings={()=> setOpenMenuBar(false)}
                     handleUsers={()=> setOpenMenuBar(false)}
@@ -193,6 +195,7 @@ useEffect(() => {
                     text-align:center;
                 }
 
+               
                 @media screen and (min-width: 768px){
                     .navbar__desktop, .navbar__options, 
                     .navbar__icons--open, .navbar__icons--addFriends{
