@@ -23,7 +23,6 @@ export default function MeetingBarMobile(props) {
         }  
     ]
 
-
     return (
         <div className="sideBar">
             {options.map ( option => (
